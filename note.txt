@@ -1,0 +1,37 @@
+webpack4.XX的详细问题说明：https://blog.csdn.net/u012443286/article/details/79504289
+
+总结：
+1、打包问题：
+webpack4.XX不能直接用webpack命令，默认入口是src/index.js,输出路径是'./dist/main.js',需要用命令webpack --mode development完成打包，为了方便在package.json里配置scripts相应参数，执行npm run dev即可
+
+结论：直接按照webpack要求的目录结构去建文件，就不会出现打包问题，保证入口文件目录为src/index.js
+
+2、本地服务
+配置npm i webpack-dev-server ---save-dev
+
+3、抽离css为独立的css文件，不然会直接打包到js中去，注意extract-text-webpack-plugin 必须下载next版本 不然不支持webpack4
+npm install --save-dev extract-text-webpack-plugin@next
+
+4、less、scss处理
+安装
+npm i less less-loader ---save-dev
+npm i node-sass sass-loader ---save-dev
+
+5、postCss预处理器，自动添加css前缀
+1）npm i postcss-loader autoprefixer --save-dev
+2）准备建一个 postcss.config.js文件 配置postcss的
+3）配置
+
+6、图片引入处理，css引入，js引入，img引入
+1）npm i file-loader url-loader --save-dev
+
+7、babel-loader
+1）npm i babel-loader --save-dev
+2）配置loder
+
+8、json-loader
+1）npm install json-loader --save-dev
+
+5、压缩插件uglifyjs
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+js压缩插件，webpack4.0以上运行npm run build会自动压缩所以不再需要此插件

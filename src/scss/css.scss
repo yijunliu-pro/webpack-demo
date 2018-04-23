@@ -1,0 +1,16 @@
+*{margin: 0;padding: 0;}
+$w300:300px;
+$bgcolor:#dedede;
+body{background: $bgcolor}
+.layout{width: 1000px;margin: 0 auto;}
+.mainbox{width: $w300;background: #dedede;}
+
+.head-list{
+    li{
+        background: url(../images/icons.png) 0 -1132px no-repeat;
+        padding-left: 14px;
+        line-height: 28px;
+        font-size: 16px;
+        
+    }
+}
